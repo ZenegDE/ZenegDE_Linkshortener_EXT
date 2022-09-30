@@ -1,0 +1,11 @@
+{
+  "name": "ZenegDE Linkshortener",
+  "version": "1.0.0",
+  "description": "Ganz schnell Links kürzen mit der ZenegDE Linkshortener Extension",
+  "manifest_version": 3,
+  "author": "Sampurna Chapagain",
+  "action":{
+    "default_popup": "frame.html",
+    "default_title": "Latest Covid Report"
+  }
+}
