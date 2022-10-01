@@ -1,12 +1,6 @@
 
 document.getElementById('submit').addEventListener("click", function(){
-    console.log(document.getElementById("link"))
     var link = document.getElementById('link').value
-
-
-    if(link === ""){
-        return;
-    }
 
     var url = "https://api.ysenay.de/v1/projects/zeneg/linkshort/index.php";
 
@@ -14,6 +8,7 @@ document.getElementById('submit').addEventListener("click", function(){
     xhr.open("POST", url);
 
     xhr.setRequestHeader("Content-Type", "application/json");
+    xhr.setRequestHeader("Access-Control-Allow-Origin", "https://api.ysenay.de")
 
     xhr.onreadystatechange = function () {
         if (xhr.readyState === 4) {
@@ -22,7 +17,9 @@ document.getElementById('submit').addEventListener("click", function(){
             document.getElementById('result').innerText = xhr.responseText
         }};
 
-    var data = '{"url":"' + link + '"}';
+    // var data = '{"url":"' + link + '"}';
+    var data = '{"url":"google.com"}';
+    console.log(data)
 
     xhr.send(data);
 })
