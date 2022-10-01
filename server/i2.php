@@ -5,6 +5,13 @@ $run = false;
 
 if (isset($_POST['link'])) {
     $link = $_POST['link'];
+    $blocked_urls = json_decode(file_get_contents("no_url.json"), true);
+
+
+
+    if(array_search($blocked_urls, $link)){
+        $link = "";
+    }
 
     $url = "https://api.ysenay.de/v1/projects/zeneg/linkshort/index.php";
 
@@ -45,8 +52,7 @@ if (isset($_POST['link'])) {
 
 if(!$run){?>
 
-<div class="col-12 py-sm-5 row">
-
+    <div class="col-12 py-sm-5 row" style="zoom: 80%">
         <div class="col-12 col-lg-8">
             <div class="form-group mt-5" id="short-form-container">
                 <form method="post" id="short-form">
@@ -78,24 +84,24 @@ if(!$run){?>
                 </form>
             </div>
         </div>
-</div>
-<?php
+    </div>
+    <?php
 }else{
     ?>
     <div class="col-12 py-sm-5 row">
 
-            <div class="col-12 col-lg-8">
-                <div class="form-group mt-5" id="short-form-container">
-                    <form method="post" id="short-form">
-                        <input type="hidden" name="_token" value="nlkHL6ytZaudXmAsLKs8BmG3Y8LbBNq54u3keVNo">
-                        <div class="form-row">
-                            <p>Gekürzter Link: <a href="#" onclick="navigator.clipboard.writeText('<?= $re['url'] ?>')"><?= $re['url'] ?></a></p>
-                            <p>Secret-Key: <?= $re['site_key'] ?></p>
-                            <p>Kopiere dir den Link, er kann dir nicht nochmal hier angezeigt werden.</p>
-                        </div>
-                    </form>
-                </div>
+        <div class="col-12 col-lg-8">
+            <div class="form-group mt-5" id="short-form-container">
+                <form method="post" id="short-form">
+                    <input type="hidden" name="_token" value="nlkHL6ytZaudXmAsLKs8BmG3Y8LbBNq54u3keVNo">
+                    <div class="form-row">
+                        <p>Gekürzter Link: <a href="#" onclick="navigator.clipboard.writeText('<?= $re['url'] ?>')"><?= $re['url'] ?></a></p>
+                        <p>Secret-Key: <?= $re['site_key'] ?></p>
+                        <p>Kopiere dir den Link, er kann dir nicht nochmal hier angezeigt werden.</p>
+                    </div>
+                </form>
             </div>
+        </div>
     </div>
-<?php
+    <?php
 }
