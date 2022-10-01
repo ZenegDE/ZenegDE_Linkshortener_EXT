@@ -95,6 +95,7 @@ if(!$run){?>
                 <form method="post" id="short-form">
                     <input type="hidden" name="_token" value="nlkHL6ytZaudXmAsLKs8BmG3Y8LbBNq54u3keVNo">
                     <div class="form-row">
+                        <a target="_blank" href="https://short.zeneg.de/result_ext.php?secret=<?= $re['site_key'] ?>&site=<?= $re['url'] ?>">In neuem Tab anzeigen</a>
                         <p>Gekürzter Link: <a href="#" onclick="navigator.clipboard.writeText('<?= $re['url'] ?>')"><?= $re['url'] ?></a></p>
                         <p>Secret-Key: <?= $re['site_key'] ?></p>
                         <p>Kopiere dir den Link, er kann dir nicht nochmal hier angezeigt werden.</p>
