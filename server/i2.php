@@ -64,7 +64,7 @@ if(!$run){?>
                                placeholder="Gib deinen zu kürzenden Link ein" autofocus="" required
 
                         <br><br>
-                        <br>
+                        <!--<br>
                         <label for="redirect_delay_dropdown"><p>Weiterleitungsverzögerung</p></label><br>
                         <select name="redirect_delay" id="redirect_delay_dropdown" class="dropdown" required>
                             <option value="0">Sofort</option>
@@ -74,7 +74,7 @@ if(!$run){?>
                             <option value="4">4 Sek.</option>
                             <option value="5">5 Sek.</option>
                         </select>
-                        <br>
+                        <br>-->
                         <div class="col-12 col-sm-auto">
                             <button class="btn btn-primary btn-lg btn-block font-size-lg mt-3 mt-sm-0" type="submit">
                                 Kürzen
