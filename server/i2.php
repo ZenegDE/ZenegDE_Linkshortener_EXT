@@ -2,6 +2,11 @@
 
 $run = false;
 
+$geturl = urldecode($_GET['url']);
+
+if($geturl == "chrome://newtab/"){
+    $geturl = "";
+}
 
 if (isset($_POST['link'])) {
     $link = $_POST['link'];
@@ -43,12 +48,25 @@ if (isset($_POST['link'])) {
         echo "<br>Secret: " . $re['site_key'];*/
     }
 
+
+
 }
 
 
 ?>
+<head>
     <link href="https://short.zeneg.de/css/app.dark.css" rel="stylesheet" id="app-css">
-<link href="hideScrollbar.css" rel="stylesheet" type="text/css">
+    <link href="hideScrollbar.css" rel="stylesheet" type="text/css">
+    <style>
+        ::placeholder {
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+<div style="margin-left: 7%">
+
 <?php
 
 if(!$run){?>
@@ -59,7 +77,7 @@ if(!$run){?>
                 <form method="post" id="short-form">
                     <input type="hidden" name="_token" value="nlkHL6ytZaudXmAsLKs8BmG3Y8LbBNq54u3keVNo">
                     <div class="form-row">
-                        <input value="<?= urldecode($_GET['url']) ? '' : '' ?>" type="text" dir="ltr" autocomplete="off"
+                        <input  value="<?php echo $geturl ?: '' ?>" type="text" dir="ltr" autocomplete="off"
                                autocapitalize="none" spellcheck="false" name="link"
                                class="form-control form-control-lg font-size-lg"
                                placeholder="Gib deinen zu kürzenden Link ein" autofocus="" required
@@ -109,3 +127,6 @@ if(!$run){?>
 }?>
 
 <script src="scrollToEndOfFile.js"></script>
+
+</div>
+</body>
