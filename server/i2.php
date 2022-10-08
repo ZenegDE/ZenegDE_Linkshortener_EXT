@@ -62,6 +62,7 @@ if (isset($_POST['link'])) {
             text-align: center;
         }
     </style>
+    <title></title>
 </head>
 
 <body>
@@ -77,10 +78,12 @@ if(!$run){?>
                 <form method="post" id="short-form">
                     <input type="hidden" name="_token" value="nlkHL6ytZaudXmAsLKs8BmG3Y8LbBNq54u3keVNo">
                     <div class="form-row">
-                        <input  value="<?php echo $geturl ?: '' ?>" type="text" dir="ltr" autocomplete="off"
-                               autocapitalize="none" spellcheck="false" name="link"
-                               class="form-control form-control-lg font-size-lg"
-                               placeholder="Gib deinen zu kürzenden Link ein" autofocus="" required
+                        <label for="inputfield"></label>
+                            <input  id="inputfield" value="<?php echo $geturl ?: '' ?>" type="text" dir="ltr" autocomplete="off"
+                                   autocapitalize="none" spellcheck="false" name="link"
+                                   class="form-control form-control-lg font-size-lg"
+                                   placeholder="Gib deinen zu kürzenden Link ein" autofocus="" required
+
 
                         <br><br>
                         <!--<br>
